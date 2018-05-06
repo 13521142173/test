@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "TabBarViewController.h"
+#import "UMSocial.h"
+#import "Define.h"
 
 @interface AppDelegate ()
 
@@ -16,9 +19,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [UMSocialData setAppKey:UMAPPKEY];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    TabBarViewController* root = [[TabBarViewController alloc]init];
+    self.window.rootViewController = root;
     [self.window makeKeyAndVisible];
     return YES;
 }
